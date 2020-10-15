@@ -1,0 +1,53 @@
+{
+    "cidade": [
+      "Bagé",
+      "Canela",
+      "Canguçu",
+      "Caxias do Sul",
+      "Frederico Westphalen",
+      "Iraí",
+      "Passo Fundo",
+      "Pelotas",
+      "Porto Alegre",
+      "Rio Grande",
+      "Santa Maria",
+      "Santa Vitória do Palmar",
+      "São Luiz Gonzaga",
+      "Torres",
+      "Uruguaiana"
+    ],
+    "lat": [
+      -31.33,
+      -29.36,
+      -31.4,
+      -29.16,
+      -27.36,
+      -27.2,
+      -28.26,
+      -31.76,
+      -30.03,
+      -32.03,
+      -29.69,
+      -33.53,
+      -28.41,
+      -29.33,
+      -29.76
+    ],
+    "lon": [
+      -54.1,
+      -50.81,
+      -52.68,
+      -51.18,
+      -53.4,
+      -53.25,
+      -52.41,
+      -52.34,
+      -51.21,
+      -52.11,
+      -53.81,
+      -53.37,
+      -54.96,
+      -49.73,
+      -57.09
+    ]
+  }
