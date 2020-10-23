@@ -22,8 +22,16 @@ strIniPrev = str( iniPrev.year ) + '-' +\
     str( iniPrev.month ).zfill(2) + '-' +\
     str( iniPrev.day ).zfill(2) + 'T' +\
     str( iniPrev.hour ).zfill(2)
-#print(dataDir)
+#print(dataDir)     # apenas para verificação!
 #exit()
+
+# CORES PARA DP DA CHUVA
+cores = ['white','lime', 'limegreen', 'mediumseagreen', 'green', 'plum',
+         'blueviolet', 'mediumorchid', 'purple', 'magenta', 'hotpink', 'crimson' ]
+limites = [ 0, 0.2, 0.4, 0.6, 0.8, 1.2, 1.8, 2.5, 5, 8, 15 ]
+mapa_cores =  matplotlib.colors.ListedColormap( cores )
+mapa_cores_norma = matplotlib.colors.BoundaryNorm( limites, mapa_cores.N )
+
 
 # LOOP dos dias de previsão
 for deltaDia in range(0,nArqs):
@@ -93,17 +101,6 @@ for deltaDia in range(0,nArqs):
     estados = cfeature.NaturalEarthFeature(category='cultural', scale='50m',
                                            facecolor='none', name='admin_1_states_provinces_shp')
 
-    # definindo mapa de cores para desvio padrão
-#    cores = ['white', 'green', 'yellow', 'orange', 'red' ]
-#    mapa_cores = matplotlib.colors.ListedColormap( cores )
-#    mapa_cores.set_over( 'purple' )
-#    mapa_cores_norma = matplotlib.colors.Normalize( vmin=0, vmax=10 )
-
-    
-    cores = ['lawngreen','limegreen','forestgreen','green','white','plum','mediumorchid','fuchsia','magenta','orchid']
-    limites = [ 0, 0.2, 0.4, 0.6, 0.8, 1.2, 1.8, 2.5, 5, 8, 15 ]
-    mapa_cores =  matplotlib.colors.ListedColormap( cores )
-    mapa_cores_norma = matplotlib.colors.BoundaryNorm( limites, mapa_cores.N )
     
     if len( pnmm.shape ) < 4:
         nt = 1
