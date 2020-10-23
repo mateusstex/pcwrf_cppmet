@@ -26,9 +26,9 @@ strIniPrev = str( iniPrev.year ) + '-' +\
 #exit()
 
 # CORES PARA DP DA CHUVA
-cores = ['white','lime', 'limegreen', 'mediumseagreen', 'green', 'plum',
+cores = ['white', 'green', #'plum',
          'blueviolet', 'mediumorchid', 'purple', 'magenta', 'hotpink', 'crimson' ]
-limites = [ 0, 0.2, 0.4, 0.6, 0.8, 1.2, 1.8, 2.5, 5, 8, 15 ]
+limites = [ 0, 1.0, 1.8, 2.5, 5, 8, 15 ]
 mapa_cores =  matplotlib.colors.ListedColormap( cores )
 mapa_cores_norma = matplotlib.colors.BoundaryNorm( limites, mapa_cores.N )
 
@@ -100,6 +100,8 @@ for deltaDia in range(0,nArqs):
     # estados do Brasil
     estados = cfeature.NaturalEarthFeature(category='cultural', scale='50m',
                                            facecolor='none', name='admin_1_states_provinces_shp')
+    paises  = cfeature.NaturalEarthFeature( category='cultural', scale='50m',
+                                        facecolor='none', name='admin_0_countries' )
 
     
     if len( pnmm.shape ) < 4:
@@ -129,7 +131,7 @@ for deltaDia in range(0,nArqs):
                                   levels=limites, extend='neither', cmap=mapa_cores, norm=mapa_cores_norma,
                                   transform=ccrs.PlateCarree() )
             
-        plt.colorbar( campo2, ticks=limites, norm=mapa_cores_norma, boundaries=[0]+limites+[15] )
+        plt.colorbar( campo2, ticks=limites )
         ax.coastlines( '50m', linewidth=0.8 )
         ax.set_title('Média (contorno) e DP (colorido) - PNMM [hPa] \n PCWRF/CPPMet/FAMET/UFPel \n Início: '+strIniPrev+' Validade: '+strTempoPrev[ tPrev ] )
         ax.set_xlim( wrf.cartopy_xlim( pnmm ) )
